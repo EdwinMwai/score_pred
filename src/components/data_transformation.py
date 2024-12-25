@@ -41,7 +41,7 @@ class DataTransformation:
             num_pipeline = Pipeline(
                 steps=[
                     ("imputer", SimpleImputer(strategy="median")),
-                    ("scaler", StandardScaler(with_mean=False))
+                    ("scaler", StandardScaler())
                 ]
             )
 
@@ -100,7 +100,7 @@ class DataTransformation:
             ]
 
             test_arr= np.c_[
-                input_feature_test_arr, np.array(input_feature_test_df)
+                input_feature_test_arr, np.array(target_feature_test_df)
             ]
 
             logging.info(f"Saved preprocessing object")
